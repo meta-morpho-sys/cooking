@@ -19,6 +19,17 @@ app.use(function(req, res, next){
     next();
 });
 
+// route that happens before all calls
+function loginCheck(req, res, next) {
+	if (req.method === 'GET') { 
+    console.log('in before hook, with req.path = ' + req.path);
+	}
+	// keep executing the router middleware
+	next()
+ }
+
+ app.use(loginCheck)
+
 app.set('views', path.join(__dirname, 'public/views'));
 app.set('view engine', 'jade');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -54,6 +65,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
