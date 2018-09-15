@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/sg');
+var db = monk('localhost:27017/cookBook');
 
 var routes = require('./lib/routes/index');
 var documents = require('./lib/routes/documents');
