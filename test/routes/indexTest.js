@@ -23,3 +23,11 @@ const userCredentials = {
         authenticatedUser.get('/recipestore').expect(200, done);
     });
   })
+
+  describe('Non logged in user accessing /recipestore', function(done) {
+    it('should return a 302 response and redirect to /login', function(done){
+        request(app).get('/recipestore')
+        .expect('Location', '/login')
+        .expect(302, done);
+      });
+  })
