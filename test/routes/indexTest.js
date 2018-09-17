@@ -1,4 +1,4 @@
-const app = require('../../app.js');
+const app = require('../../app');
 var chai = require('chai');
 var expect = chai.expect;
 var request = require('supertest');
